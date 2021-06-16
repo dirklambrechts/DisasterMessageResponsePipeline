@@ -201,6 +201,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
     print (classification_report(Y_test, y_predicted_test, target_names=category_names))
 
 def save_model(model, model_filepath):
+    '''
+    Save the model created to a file path.
+    
+    Input:
+    model (): model object
+    model_filepath (string): Path where the model should be saved to           
+       
+    Returns: None.
+
+    '''    
     pickle.dump(model, open(model_filepath, 'wb'))
     print ('Model saved...')
 
