@@ -18,8 +18,9 @@ def load_data(messages_filepath, categories_filepath):
     return mess_df.merge(cat_df, how='left', on='id')
 
 def clean_data(df):
-    """Cleans the data frame containing messages and categories. ie. remove duplicate messages,
-        create dummy variables for all categories.
+    """
+    Cleans the data frame containing messages and categories. ie. remove duplicate messages,
+    create dummy variables for all categories.
     
     inputs:
     dataframe: (df). Dataframe containing messages and categories data
@@ -45,24 +46,25 @@ def clean_data(df):
         # convert column from string to numeric
         categories[column] = pd.to_numeric(categories[column])  
         
-        # drop the original categories column from `df`
-        df.drop(['categories'], axis=1, inplace=True)  
+    # drop the original categories column from `df`
+    df.drop(['categories'], axis=1, inplace=True)  
         
-        #Concatenate original df with categories df
-        df = pd.concat([df, categories], axis=1)
+    #Concatenate original df with categories df
+    df = pd.concat([df, categories], axis=1)
         
-        #Drop duplicate messages
-        df = df.drop_duplicates(subset=['message'])
+    #Drop duplicate messages
+    df = df.drop_duplicates(subset=['message'])
         
-        #Create dummy variables for the 'genre' column
-        df = pd.concat([df, pd.get_dummies(df['genre'])], axis=1)
-        df = df.drop(['genre', 'social'], axis=1)     
+    #Create dummy variables for the 'genre' column
+    df = pd.concat([df, pd.get_dummies(df['genre'])], axis=1)
+    df = df.drop(['genre', 'social'], axis=1)     
         
     return df
 
 
 def save_data(df, database_filename):
-    """Saves the data from a data frame in an sql database
+    """
+    Saves the data from a data frame in an sql database
     
     inputs:
     df: (dataframe). Dataframe containing messages and categories data
