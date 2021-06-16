@@ -99,7 +99,7 @@ model = joblib.load("models/classifier.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+    
     most_common_sum = df.drop(['id', 'related', 'message'], axis=1).sum().sort_values(ascending=False).nlargest()
     most_common_cols = list(most_common_sum.index)
     
@@ -110,7 +110,7 @@ def index():
     all_cols_pie = list(df.drop(['id', 'related', 'message'], axis=1).columns)
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    
     graphs = [
         #Graph 1: Most common categories in training set
         {
