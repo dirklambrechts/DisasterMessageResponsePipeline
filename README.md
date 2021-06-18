@@ -7,7 +7,8 @@
 	2. [Installing](#installation)
 	3. [Executing Program](#execution)
 	4. [Additional Material](#material)
-3. [Authors](#authors)
+3. [Acknowledgements](#acknowledgements)
+4. [Authors](#authors)
 
 
 
@@ -46,12 +47,15 @@ git clone https://github.com/dirklambrechts/DisasterMessageResponsePipeline
 1. Run the following commands to pre-process the data, train the model and deploy the web application:
 
     - To run the the ETL program the following command is used (the last argument in this command is the name for the database):
+
         `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponseDB`
     - To train the model that uses data from the database created in the previous step run the following command:
+
         `python models/train_classifier.py data/DisasterResponseDB.db models/classifier.pkl`
 
 2. Run the following command to run the python script responsible for deploying the web application.
-    `python run.py`
+
+    `python app/run.py`
 
 3. Go to http://0.0.0.0:3001/ to view and use the web application
 
@@ -59,6 +63,12 @@ git clone https://github.com/dirklambrechts/DisasterMessageResponsePipeline
 ### Additional Information
 
 There are two jupyter notebook (.ipynb) files that can assist in describing the data pre-processing and modelling process in more detail. They are in the folder called data and models respectively. 
+
+<a name="acknowledgements"></a>
+## Acknowledgements
+[Figure Eight](https://www.figure-eight.com/) for providing the data set used in this project
+
+[Udacity](https://www.udacity.com/) for developing the project content with Figure Eight
 
 <a name="authors"></a>
 ## Authors
